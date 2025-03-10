@@ -4,6 +4,7 @@ export CARBONYL_ROOT=$(cd $(dirname -- "$0") && dirname -- "$(pwd)")
 export INSTALL_DEPOT_TOOLS="true"
 
 cd "$CARBONYL_ROOT"
+echo "root is $CARBOONYL_ROOT"
 source scripts/env.sh
 
 target="$1"
@@ -16,6 +17,7 @@ if [ ! -z "$cpu" ]; then
     shift
 fi
 
+echo "$(pwd)"
 triple=$(scripts/platform-triple.sh "$cpu")
 
 if [ -z "$CARBONYL_SKIP_CARGO_BUILD" ]; then
